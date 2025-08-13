@@ -3,9 +3,9 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%
-	TinyDAO dao = new TinyDAO();
-	List<TinyDTO> list =  dao.selectList();
+	
 %>
 <!DOCTYPE html>
 	<html>
@@ -28,17 +28,13 @@
 	<body>
 		<h2>Tiny DAO</h2>
 			<table>
-			<%
-				for(TinyDTO dto : list) {
-			%>
+				<c:forEach var="dto" items="${list }">
 				<tr>
-					<td><%=dto.getNum() %></td>
-					<td><%=dto.getContent() %>
+					<td>${dto.num }</td>
+					<td>${dto.content }</td>
 				</tr>
-			<% 		
-				}
-			%>	
+			</c:forEach>
 			</table>
-		<button type="button" onclick="location.href='insertFrom.jsp'">글쓰기</button>
+		<button type="button" onclick="location.href='insertFrom'">글쓰기</button>
 	</body>
 </html>

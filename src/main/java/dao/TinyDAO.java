@@ -77,7 +77,8 @@ public class TinyDAO {
 		try {
 		    conn = getConnection();
 		    stmt = conn.createStatement();
-		    stmt.executeUpdate(String.format("UPDATE tiny set content = '%s' WHERE num = '%d'" + num, content ));
+		    stmt.executeUpdate(String.format("UPDATE tiny set content = '%s' WHERE num = '%d'" + content, num ));
+		    
 		} catch (SQLException e) {
 			System.out.println("데이터베이스 오류: " + e.getMessage());
 		} catch (ClassNotFoundException e) {
